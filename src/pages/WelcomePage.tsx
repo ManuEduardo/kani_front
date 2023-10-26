@@ -237,12 +237,23 @@ const WelcomePage = () => {
         </div>
       )}
       {step === 2 && (
-        <div>
-          <div className="h-[7%] shadow-2xl">
-            <img src={KaniText} alt="KANI" className="mx-auto pt-4 pb-2" />
+        <div className="flex flex-col min-h-screen">
+          <div className="items-center h-[8%] w-[30%] flex mx-auto mb-8 mt-8">
+            <img src={KaniText} alt="KANI" className="pt-4 pb-2" />
           </div>
-          <div>
-            <img src={yoga_icon} alt="yoga" className="mx-auto" />
+          <div className="items-center mb-10">
+            <img src={yoga_icon} alt="yoga" className="mx-auto w-3/5 h-3/5" />
+          </div>
+          <div className="absolute bottom-0 left-0 right-0 bg-purple-500 p-4 rounded-t-lg">
+            <div className="flex flex-col items-start">
+              <p className="mt-2 text-left text-white text-lg font-otomanopee-one leading-8 tracking-widest ">
+                Sabías que....
+              </p>
+              <p className="mt-2 text-left text-white text-sm font-outfit leading-5 tracking-wide">
+                El GABA, o ácido gamma-aminobutírico, es un aminoácido y
+                neurotransmisor que regula la excitabilidad cerebral
+              </p>
+            </div>
           </div>
         </div>
       )}
