@@ -3,6 +3,10 @@ import FrameTool from "../components/FrameTool";
 import gabaImg from "../assets/gaba.png";
 import diaryIcon from "../assets/diary_icon.png";
 import chatIcon from "../assets/chatbot_icon.png";
+import breathIcon from "../assets/breath_icon.png";
+import minfulnessIcon from "../assets/mindfulness_icon.png"
+import emotionsIcon from "../assets/emotions_icon.png"
+import emergencyIcon from "../assets/emergency_icon.png"
 
 const ListKaniTools = () => {
   return (
@@ -30,6 +34,30 @@ const ListKaniTools = () => {
           titleTool="platica con gaba"
           subTitleTool="¡Gaba es una IA en la que puedes confiar!"
         />
+        <FrameTool
+          iconSrc={breathIcon}
+          tailColor="bg-amber-400"
+          titleTool="respiración"
+          subTitleTool="Toma un descanso y solo respira"
+        />
+        <FrameTool
+          iconSrc={minfulnessIcon}
+          tailColor="bg-amber-400"
+          titleTool="mindfulness"
+          subTitleTool="Vive en el presente"
+        />
+        <FrameTool
+          iconSrc={emotionsIcon}
+          tailColor="bg-fuchsia-400"
+          titleTool="platica con gaba"
+          subTitleTool="¿Como te va?"
+        />
+        <FrameTool
+        iconSrc={emergencyIcon}
+        tailColor="bg-slate-50"
+        titleTool="Emergencia"
+        subTitleTool="¿Necesitas ayuda?"
+      />
       </div>
     </div>
   );
