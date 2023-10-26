@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import KaniText from "../assets/text_kani_black.png";
 import animal_icon from "../assets/animal_icon.png";
 import yoga_icon from "../assets/yoga_icon.png";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../constans";
+import { useSetUserContext } from "../context/UserProvider";
+import { EmptyUser } from "../models";
 
 const WelcomePage = () => {
   const navigate = useNavigate();
+  const setUser = useSetUserContext()
   const [step, setStep] = useState(0);
-  const [name, setName] = useState("");
+  const [nameUser, setNameUser] = useState("");
   const startClick = () => {
     setStep(1);
   };
@@ -186,15 +189,20 @@ const WelcomePage = () => {
               <foreignObject x="50" y="25" width="200" height="20">
                 <input
                   type="text"
+                  value={nameUser}
                   className="text-center text-opacity-70 tracking-widest bg-transparent border-none outline-none w-full h-full leading-8 font-black text-2xl"
                   onKeyDown={(e) => {
                     if (
                       e.key === "Enter" &&
                       e.target instanceof HTMLInputElement
                     ) {
-                      setName(e.target.value);
                       setStep(2);
+                      console.log(nameUser);
+                      setUser({...EmptyUser, name:nameUser});
                     }
+                  }}
+                  onChange={(e) => {
+                    setNameUser(e.target.value);
                   }}
                 />
               </foreignObject>

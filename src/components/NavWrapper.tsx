@@ -1,11 +1,9 @@
-import React from "react";
 import KaniText from "../assets/text_kani_white.png";
 import CoindMenu from "../assets/coins_menu.png";
 import ToolsMenu from "../assets/tools_menu.png";
 import HomeMenu from "../assets/home_menu.png";
 import ProfileMenu from "../assets/profile_menu.png";
-import Icons from "./Icon";
-import { Outlet, NavLink, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { ROUTES } from "../constans";
 
 const NavWrapper = () => {
