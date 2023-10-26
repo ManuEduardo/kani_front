@@ -5,15 +5,16 @@ import { ROUTES } from "./constans";
 import ListKaniTools from "./pages/ListKaniTools";
 import DiaryPage from "./pages/DiaryPage";
 import NavWrapper from "./components/NavWrapper";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (
     <Routes>
       <Route path={ROUTES.defaul} element={<WelcomePage />} />
-      <Route element={<ProtectedRoute />}>
-        <Route path={ROUTES.profile} element={<div>perfil</div>} />
-      </Route>
       <Route element={<NavWrapper />}>
+        <Route element={<ProtectedRoute />}>
+          <Route path={ROUTES.profile} element={<ProfilePage/>} />
+        </Route>
         <Route path={ROUTES.tools} element={<ListKaniTools />} />
       </Route>
       <Route path={ROUTES.diary} element={<DiaryPage />} />
