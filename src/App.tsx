@@ -19,10 +19,10 @@ function App() {
       <Route element={<NavWrapper />}>
         <Route element={<ProtectedRoute />}>
           <Route path={ROUTES.profile} element={<ProfilePage/>} />
-          <Route path={ROUTES.profile} element={<HomePage/>} />
         </Route>
         <Route path={ROUTES.tools} element={<ListKaniTools />} />
       </Route>
+      <Route path={ROUTES.home} element={<HomePage/>} />
       <Route path={ROUTES.diary} element={<DiaryPage />} />
       <Route path={ROUTES.breathing} element={<BreathingPage />} />
       <Route path="*" element={<div>error</div>} />

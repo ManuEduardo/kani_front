@@ -16,7 +16,7 @@ const NavWrapper = () => {
         <img src={KaniText} alt="KANI" className=" h-full mx-auto pt-4 pb-2" />
       </div>
       <Outlet />
-      <div className="h-14 z-10 bg-purple-500 mx-6 my-2 rounded-lg shadow-2xl flex justify-around">
+      <div className=" h-14 z-20 bg-purple-500 mx-6 my-2 rounded-lg shadow-2xl flex justify-around">
         <img
           src={CoindMenu}
           alt="monedas menu"
