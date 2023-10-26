@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import KaniText from "../assets/text_kani_black.png";
+import animal_icon from "../assets/animal_icon.png";
 
 const WelcomePage = () => {
-  const [step, setStep] = useState<Number>(0);
-  const [name, setName] = useState<String>("");
+  const [step, setStep] = useState(0);
+  const [name, setName] = useState("");
   const startClick = () => {
-    setStep(1)
+    setStep(1);
   };
+
   return (
     <>
-      {step ? (
-        0
-      ) : (
+      {step === 0 && (
         <div className="bg-purple-500 min-h-screen flex flex-col justify-between relative overflow-hidden">
           <h2 className="text-2xl text-purple-50 ml-12 mt-11 font-bold">
             Bienvenido
@@ -49,16 +49,172 @@ const WelcomePage = () => {
           </div>
         </div>
       )}
-      {
-        step ? 1 :(
-          <div></div>
-        )
-      }
-      {
-        step ? 2 : (
-          <div></div>
-        )
-      }
+
+      {step === 1 && (
+        <div>
+          <div className="absolute top-0 right-0">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="88"
+              height="185"
+              viewBox="0 0 88 185"
+              fill="none"
+            >
+              <path
+                d="M274 118.5C274 182.289 217.14 185 147 185C76.8598 185 0 164.289 0 100.5C0 36.7111 56.8598 -15 127 -15C197.14 -15 274 54.7111 274 118.5Z"
+                fill="#925CF1"
+              />
+            </svg>
+          </div>
+
+          <img src={animal_icon} alt="animal" className=" w-16" />
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="295"
+            height="78"
+            viewBox="0 0 295 78"
+            fill="none"
+          >
+            <g filter="url(#filter0_ddd_344_41)">
+              <path
+                d="M4 6C4 2.68629 6.68629 0 10 0H285C288.314 0 291 2.68629 291 6V64C291 67.3137 288.314 70 285 70H10C6.68629 70 4 67.3137 4 64V6Z"
+                fill="#FEBF01"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_ddd_344_41"
+                x="0"
+                y="0"
+                width="295"
+                height="78"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset dy="4" />
+                <feGaussianBlur stdDeviation="2" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_344_41"
+                />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset dy="4" />
+                <feGaussianBlur stdDeviation="2" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="effect1_dropShadow_344_41"
+                  result="effect2_dropShadow_344_41"
+                />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset dy="4" />
+                <feGaussianBlur stdDeviation="2" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="effect2_dropShadow_344_41"
+                  result="effect3_dropShadow_344_41"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect3_dropShadow_344_41"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
+
+          <div className="absolute bottom-0">
+            {
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="188"
+                height="117"
+                viewBox="0 0 188 117"
+                fill="none"
+              >
+                <g filter="url(#filter0_d_344_44)">
+                  <path
+                    d="M184 133.373C158 287.373 155.349 164.373 83.0001 164.373C10.6508 164.373 -47.9999 102.14 -47.9999 25.3729C-47.9999 -51.3947 10.6508 71.3729 83.0001 71.3729C155.349 71.3729 184 56.6053 184 133.373Z"
+                    fill="#925CF1"
+                  />
+                </g>
+                <defs>
+                  <filter
+                    id="filter0_d_344_44"
+                    x="-51.9999"
+                    y="0.123169"
+                    width="240"
+                    height="218.771"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                  >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                      in="SourceAlpha"
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      result="hardAlpha"
+                    />
+                    <feOffset dy="4" />
+                    <feGaussianBlur stdDeviation="2" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in2="BackgroundImageFix"
+                      result="effect1_dropShadow_344_44"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="effect1_dropShadow_344_44"
+                      result="shape"
+                    />
+                  </filter>
+                </defs>
+              </svg>
+            }
+          </div>
+        </div>
+      )}
+      {step === 2 && <div></div>}
     </>
   );
 };
