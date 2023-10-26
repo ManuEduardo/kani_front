@@ -3,6 +3,7 @@ import WelcomePage from "./pages/WelcomePage";
 import ProtectedRoute from "./components/ProtectedRouter";
 import { ROUTES } from "./constans";
 import ListKaniTools from "./pages/ListKaniTools";
+import DiaryPage from "./pages/DiaryPage";
 import NavWrapper from "./components/NavWrapper";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Route element={<NavWrapper />}>
         <Route path={ROUTES.tools} element={<ListKaniTools />} />
       </Route>
+      <Route path={ROUTES.diary} element={<DiaryPage />} />
       <Route path="*" element={<div>error</div>} />
     </Routes>
   );

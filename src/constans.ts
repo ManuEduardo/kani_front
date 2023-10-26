@@ -1,5 +1,6 @@
 export const ROUTES = {
     profile: "/perfil",
     defaul: "/",
-    tools: "/herramientas"
+    tools: "/herramientas",
+    diary: "/diario"
 }
