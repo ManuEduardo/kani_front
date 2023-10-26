@@ -25,15 +25,25 @@ const HomePage = () => {
           <h2 className=" relative bottom-3 py-2 px-8 mx-auto text-slate-50 bg-amber-400 w-max font-bold text-lg shadow-2xl rounded-xl">
             {"Lucia"}
           </h2>
-          <h2>¿Quiénes somos?</h2>
-          <p>
+          <h2 className=" text-lg font-thin">¿Quiénes somos?</h2>
+          <p className=" text-sm font-thin mb-2">
             Somos KANI una herramienta auxiliar para ayudar a mejorar hábitos,
             sentirte seguro y aprender a calmarnos.
           </p>
-          <h2>¿Qué quieres hacer hoy?</h2>
-          <p>Aventúrate con nosotros y sientete seguro.</p>
-          <div>
-            <h3>Pongámonos en marcha!</h3>
+          <h2 className=" text-lg font-thin">¿Qué quieres hacer hoy?</h2>
+          <p className=" text-sm font-thin mb-2">
+            Aventúrate con nosotros y sientete seguro.
+          </p>
+          <div className=" flex justify-between ">
+            <div>
+              <h3 className=" text-lg text-amber-400">Pongámonos en marcha!</h3>
+              <button
+                className="block mt-2 mr-2 ml-auto bg-rose-400 py-1 px-4 rounded-lg shadow-lg text-slate-50"
+                onClick={() => navigate(ROUTES.profile)}
+              >
+                Click aquí
+              </button>
+            </div>
             <img src={starShipImg} alt="nave espacial" />
           </div>
         </div>
@@ -54,6 +64,8 @@ const HomePage = () => {
           src={HomeMenu}
           alt="home menu"
           className=" w-10 h-10 my-auto hover:scale-110 transition-transform"
+          onClick={() => navigate(ROUTES.home)}
+
         />
         <img
           src={ProfileMenu}
