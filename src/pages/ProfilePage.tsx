@@ -28,14 +28,20 @@ const ProfilePage = () => {
         </div>
       </div>
       <div className=" mt-36 flex flex-wrap justify-around bg-slate-300 p-4 mx-6 rounded-lg shadow-2xl">
-        <div className=" w-32 h-32">
-          <div className=" bg-cyan-400 m-1 p-1 rounded-xl shadow-md">
+        <div className=" w-32 h-32 hover:scale-105 transition-transform">
+          <div
+            className=" bg-cyan-400 m-1 p-1 rounded-xl shadow-md"
+            data-aos="fade-right"
+          >
             <h3 className=" text-sm text-center font-mono">Dias juntos</h3>
             <p className=" text-8xl font-bold text-slate-50 text-center">{2}</p>
           </div>
         </div>
-        <div className=" w-32 h-32">
-          <div className=" bg-amber-300 px-2 py-4 rounded-lg shadow-2xl">
+        <div className=" w-32 h-32 hover:scale-105 transition-transform">
+          <div
+            className=" bg-amber-300 px-2 py-4 rounded-lg shadow-2xl "
+            data-aos="fade-left"
+          >
             <h3 className=" text-center text-sm my-2">Colorea tu Gaba</h3>
             <div className=" flex justify-around">
               <div className=" h-10 w-10 rounded-full bg-green-500"></div>
@@ -45,13 +51,17 @@ const ProfilePage = () => {
           </div>
         </div>
 
-        <div className=" w-32 h-32">
-          <h3>Frase del Dia</h3>
-          <p>Solo haz click</p>
+        <div className=" w-32 h-32 hover:scale-105 transition-transform">
+          <div data-aos="fade-up-right" className=" bg-fuchsia-400 mx-1 my-8 p-1 rounded-lg shadow-2xl">
+            <h3 className=" text-center text-slate-50">Frase del Dia</h3>
+            <p className=" text-center text-sm">Solo haz click</p>
+          </div>
         </div>
-        <div className=" w-32 h-32">
-          <h3>Metas & Hobbies</h3>
-          <img src={hobbiesIcon} alt="" />
+        <div className=" w-32 h-32 hover:scale-105 transition-transform">
+          <div data-aos="fade-up-left" className=" flex flex-col bg-emerald-400 p-2 rounded-lg">
+            <h3 className=" text-center text-lg">Metas & Hobbies</h3>
+            <img src={hobbiesIcon}  alt="icono hobbies" className="block mx-auto w-12"/>
+          </div>
         </div>
       </div>
     </div>
