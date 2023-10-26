@@ -1,14 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import KaniText from "../assets/text_kani_black.png";
 import animal_icon from "../assets/animal_icon.png";
 import yoga_icon from "../assets/yoga_icon.png";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../constans";
 
 const WelcomePage = () => {
+  const navigate = useNavigate();
   const [step, setStep] = useState(0);
   const [name, setName] = useState("");
   const startClick = () => {
     setStep(1);
   };
+
+  const redirectToAnotherRoute = () => {
+    navigate(ROUTES.home);
+  };
+
+  // Use useEffect para realizar la redirección cuando step sea 2
+  useEffect(() => {
+    if (step === 2) {
+      // Configura un temporizador para la redirección después de 3000 milisegundos (3 segundos)
+      const timer = setTimeout(() => {
+        redirectToAnotherRoute();
+      }, 3000); // 3000 ms = 3 segundos
+
+      // Limpia el temporizador cuando el componente se desmonta o cuando step cambia
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [step]);
 
   return (
     <>
@@ -237,19 +259,37 @@ const WelcomePage = () => {
         </div>
       )}
       {step === 2 && (
-        <div className="flex flex-col min-h-screen">
-          <div className="items-center h-[8%] w-[30%] flex mx-auto mb-8 mt-8">
-            <img src={KaniText} alt="KANI" className="pt-4 pb-2" />
+        <div className="flex flex-col min-h-screen bg-purple-500">
+          <div className="overflow-hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="390"
+              height="572"
+              viewBox="0 0 390 582"
+              fill="none"
+              className="absolute"
+            >
+              <path
+                d="M-6 0H396V537.685C335.358 616.472 212.806 573.237 -6 537.685V0Z"
+                fill="white"
+              />
+            </svg>
           </div>
-          <div className="items-center mb-10">
-            <img src={yoga_icon} alt="yoga" className="mx-auto w-3/5 h-3/5" />
+
+          <div className="relative">
+            <div className="items-center h-[8%] w-[30%] flex mx-auto mb-8 mt-8">
+              <img src={KaniText} alt="KANI" className="pt-4 pb-2" />
+            </div>
+            <div className="items-center mb-10">
+              <img src={yoga_icon} alt="yoga" className="mx-auto w-3/5 h-3/5" />
+            </div>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 bg-purple-500 p-4 rounded-t-lg">
+          <div className="absolute bottom-0 left-0 right-0 p-4 rounded-t-lg">
             <div className="flex flex-col items-start">
               <p className="mt-2 text-left text-white text-lg font-otomanopee-one leading-8 tracking-widest ">
                 Sabías que....
               </p>
-              <p className="mt-2 text-left text-white text-sm font-outfit leading-5 tracking-wide">
+              <p className="mt-1 text-left text-white text-sm font-outfit leading-5 tracking-wide">
                 El GABA, o ácido gamma-aminobutírico, es un aminoácido y
                 neurotransmisor que regula la excitabilidad cerebral
               </p>
