@@ -1,5 +1,5 @@
 import React from "react";
-import KaniText from "../assets/KANI.png";
+import KaniText from "../assets/text_kani_black.png";
 
 const WelcomePage = () => {
     const startClick = () => {

@@ -2,7 +2,7 @@ import React from "react";
 import { Icon } from "@iconify/react";
 
 interface IconsProps {
-  icon: any; // Cambia "any" al tipo correcto según el tipo de iconos que estés utilizando
+  icon: string; // Cambia "any" al tipo correcto según el tipo de iconos que estés utilizando
   className?: string;
   width?: number;
   rotate?: number;
