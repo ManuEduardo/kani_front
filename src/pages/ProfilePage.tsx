@@ -52,7 +52,7 @@ const ProfilePage = () => {
         </div>
 
         <div className=" w-32 h-32 hover:scale-105 transition-transform">
-          <div data-aos="fade-up-right" className=" bg-fuchsia-400 mx-1 my-8 p-1 rounded-lg shadow-2xl">
+          <div className=" bg-fuchsia-400 mx-1 my-8 p-1 rounded-lg shadow-2xl">
             <h3 className=" text-center text-slate-50">Frase del Dia</h3>
             <p className=" text-center text-sm">Solo haz click</p>
           </div>

@@ -32,6 +32,7 @@ const NavWrapper = () => {
           src={HomeMenu}
           alt="home menu"
           className=" w-10 h-10 my-auto hover:scale-110 transition-transform"
+          onClick={()=> navigate(ROUTES.home)}
         />
         <img
           src={ProfileMenu}
