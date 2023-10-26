@@ -5,6 +5,7 @@ import { ROUTES } from "./constans";
 import ListKaniTools from "./pages/ListKaniTools";
 import DiaryPage from "./pages/DiaryPage";
 import NavWrapper from "./components/NavWrapper";
+import BreathingPage from "./pages/BreathingPage";
 import ProfilePage from "./pages/ProfilePage";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path={ROUTES.tools} element={<ListKaniTools />} />
       </Route>
       <Route path={ROUTES.diary} element={<DiaryPage />} />
+      <Route path={ROUTES.breathing} element={<BreathingPage />} />
       <Route path="*" element={<div>error</div>} />
     </Routes>
   );

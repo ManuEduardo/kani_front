@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import KaniText from "../assets/text_kani_black.png";
 import animal_icon from "../assets/animal_icon.png";
+import yoga_icon from "../assets/yoga_icon.png";
 
 const WelcomePage = () => {
   const [step, setStep] = useState(0);
@@ -67,95 +68,116 @@ const WelcomePage = () => {
             </svg>
           </div>
 
-          <img src={animal_icon} alt="animal" className=" w-16" />
-
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="295"
-            height="78"
-            viewBox="0 0 295 78"
-            fill="none"
-          >
-            <g filter="url(#filter0_ddd_344_41)">
-              <path
-                d="M4 6C4 2.68629 6.68629 0 10 0H285C288.314 0 291 2.68629 291 6V64C291 67.3137 288.314 70 285 70H10C6.68629 70 4 67.3137 4 64V6Z"
-                fill="#FEBF01"
-              />
-            </g>
-            <defs>
-              <filter
-                id="filter0_ddd_344_41"
-                x="0"
-                y="0"
-                width="295"
-                height="78"
-                filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
-              >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                <feColorMatrix
-                  in="SourceAlpha"
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                  result="hardAlpha"
+          <div className="flex flex-col items-center justify-center h-screen">
+            <img src={animal_icon} alt="animal" className="mx-auto" />
+            <div className="text-center">
+              <p className="mt-6 text-center text-lg font-outfit font-normal text-opacity-70 leading-8 tracking-widest">
+                ¿Cómo deseas llamarte?
+              </p>
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="295"
+              height="78"
+              viewBox="0 0 295 78"
+              fill="none"
+            >
+              <g filter="url(#filter0_ddd_344_41)">
+                <path
+                  d="M4 6C4 2.68629 6.68629 0 10 0H285C288.314 0 291 2.68629 291 6V64C291 67.3137 288.314 70 285 70H10C6.68629 70 4 67.3137 4 64V6Z"
+                  fill="#FEBF01"
                 />
-                <feOffset dy="4" />
-                <feGaussianBlur stdDeviation="2" />
-                <feComposite in2="hardAlpha" operator="out" />
-                <feColorMatrix
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+              </g>
+              <defs>
+                <filter
+                  id="filter0_ddd_344_41"
+                  x="0"
+                  y="0"
+                  width="295"
+                  height="78"
+                  filterUnits="userSpaceOnUse"
+                  colorInterpolationFilters="sRGB"
+                >
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                  />
+                  <feOffset dy="4" />
+                  <feGaussianBlur stdDeviation="2" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                  />
+                  <feBlend
+                    mode="normal"
+                    in2="BackgroundImageFix"
+                    result="effect1_dropShadow_344_41"
+                  />
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                  />
+                  <feOffset dy="4" />
+                  <feGaussianBlur stdDeviation="2" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                  />
+                  <feBlend
+                    mode="normal"
+                    in2="effect1_dropShadow_344_41"
+                    result="effect2_dropShadow_344_41"
+                  />
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                  />
+                  <feOffset dy="4" />
+                  <feGaussianBlur stdDeviation="2" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                  />
+                  <feBlend
+                    mode="normal"
+                    in2="effect2_dropShadow_344_41"
+                    result="effect3_dropShadow_344_41"
+                  />
+                  <feBlend
+                    mode="normal"
+                    in="SourceGraphic"
+                    in2="effect3_dropShadow_344_41"
+                    result="shape"
+                  />
+                </filter>
+              </defs>
+              <foreignObject x="50" y="25" width="200" height="20">
+                <input
+                  type="text"
+                  className="text-center text-opacity-70 tracking-widest bg-transparent border-none outline-none w-full h-full leading-8 font-black text-2xl"
+                  onKeyDown={(e) => {
+                    if (
+                      e.key === "Enter" &&
+                      e.target instanceof HTMLInputElement
+                    ) {
+                      setName(e.target.value);
+                      setStep(2);
+                    }
+                  }}
                 />
-                <feBlend
-                  mode="normal"
-                  in2="BackgroundImageFix"
-                  result="effect1_dropShadow_344_41"
-                />
-                <feColorMatrix
-                  in="SourceAlpha"
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                  result="hardAlpha"
-                />
-                <feOffset dy="4" />
-                <feGaussianBlur stdDeviation="2" />
-                <feComposite in2="hardAlpha" operator="out" />
-                <feColorMatrix
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                />
-                <feBlend
-                  mode="normal"
-                  in2="effect1_dropShadow_344_41"
-                  result="effect2_dropShadow_344_41"
-                />
-                <feColorMatrix
-                  in="SourceAlpha"
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                  result="hardAlpha"
-                />
-                <feOffset dy="4" />
-                <feGaussianBlur stdDeviation="2" />
-                <feComposite in2="hardAlpha" operator="out" />
-                <feColorMatrix
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                />
-                <feBlend
-                  mode="normal"
-                  in2="effect2_dropShadow_344_41"
-                  result="effect3_dropShadow_344_41"
-                />
-                <feBlend
-                  mode="normal"
-                  in="SourceGraphic"
-                  in2="effect3_dropShadow_344_41"
-                  result="shape"
-                />
-              </filter>
-            </defs>
-          </svg>
+              </foreignObject>
+            </svg>
+          </div>
 
           <div className="absolute bottom-0">
             {
@@ -180,9 +202,9 @@ const WelcomePage = () => {
                     width="240"
                     height="218.771"
                     filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
+                    colorInterpolationFilters="sRGB"
                   >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
                     <feColorMatrix
                       in="SourceAlpha"
                       type="matrix"
@@ -214,7 +236,16 @@ const WelcomePage = () => {
           </div>
         </div>
       )}
-      {step === 2 && <div></div>}
+      {step === 2 && (
+        <div>
+          <div className="h-[7%] shadow-2xl">
+            <img src={KaniText} alt="KANI" className="mx-auto pt-4 pb-2" />
+          </div>
+          <div>
+            <img src={yoga_icon} alt="yoga" className="mx-auto" />
+          </div>
+        </div>
+      )}
     </>
   );
 };
