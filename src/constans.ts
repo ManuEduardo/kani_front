@@ -3,5 +3,6 @@ export const ROUTES = {
     defaul: "/",
     tools: "/herramientas",
     diary: "/diario",
-    breathing: "/respiracion"
+    breathing: "/respiracion",
+    home: "/home",
 }

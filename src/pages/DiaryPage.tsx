@@ -2,7 +2,9 @@ import KaniText from "../assets/text_kani_white.png";
 import DiaryImage from '../assets/diary_logo.png'
 import ArrowLeft from '../assets/arrow-left.png'
 import DiaryComponent from "../components/DiaryComponent";
+import { useNavigate } from "react-router-dom";
 function DiaryPage() {
+  const navigate = useNavigate()
   return (
     <div className="h-screen">
       <div className="h-[7%] bg-purple-500 shadow-2xl">
@@ -12,7 +14,7 @@ function DiaryPage() {
       <div className="h-[93%]">
         <div className="px-2 pl-6 py-1 flex justify-center h-1/5">
           <div className="absolute left-10">
-            <button><img src={ArrowLeft} alt="" /></button>
+            <button><img src={ArrowLeft} onClick={()=>navigate(-1)}/></button>
           </div>
           <div className="">
             <p className="text-xl mb-1">Escribe tu diario</p>
