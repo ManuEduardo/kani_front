@@ -48,9 +48,17 @@ function DiaryPage() {
           </div>
         </div>
         <div className="py-1 px-3 bg-purple-300 ">
-          {notes.map((not:Note) => (
-            <DiaryComponent key={not.id} fecha="27 oct" content={not.title} />
-          ))}
+          {notes.length > 0 ? (
+            notes.map((not: Note) => (
+              <DiaryComponent key={not.id} fecha="27 oct" content={not.title} />
+            ))
+          ) : (
+            <div className=" bg-purple-200 px-1 py-2 rounded-lg my-4">
+              <p className=" text-sm text-center">
+                Herramientas: ¿En qué te puedo ayudar?
+              </p>
+            </div>
+          )}
           <button
             className="block mx-auto py-4"
             onClick={() => navigate(`${ROUTES.diary}/${notes.length + 1}`)}
