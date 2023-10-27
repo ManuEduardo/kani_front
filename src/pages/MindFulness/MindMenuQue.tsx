@@ -7,17 +7,15 @@ import Participar from './Participar'
 import Describir from './Describir'
 
 interface Props {
-    stepQue: number
-    setStepQue: (stepComo: number)=>void
+    localStep: number,
+    changeLocalStep: () => void,
+    stepQue: number,
+    setStepQue: (stepQue: number) => void
 }
 
-const MindMenuQue = ({setStepQue, stepQue}:Props) => {
-    const changeStep = (idx: number) => {
-        setStepQue(idx);
-    };
+const MindMenuQue = ({ setStepQue, stepQue, localStep, changeLocalStep }: Props) => {
     return (
         <>
-
             {stepQue === 0 && (
                 <div>
                     <div className='w-4/5 mx-auto'>
@@ -34,7 +32,7 @@ const MindMenuQue = ({setStepQue, stepQue}:Props) => {
                             <span className='text-2xl py-4 px-2 font-mono'>
                                 1. Observar
                             </span>
-                            <button onClick={() => changeStep(1)}
+                            <button onClick={() => setStepQue(1)}
                                 className='w-13 h-13 p-4 absolute -right-4 rounded-full
                                  inline-flex border border-amber-400 bg-white'>
                                 <img src={EyeImg} alt="" />
@@ -47,7 +45,7 @@ const MindMenuQue = ({setStepQue, stepQue}:Props) => {
                             <span className='text-2xl py-4 px-2 font-mono'>
                                 2. Describir
                             </span>
-                            <button onClick={() => changeStep(2)}
+                            <button onClick={() => setStepQue(2)}
                                 className='w-13 h-13 p-4 absolute -right-4 rounded-full
                                  inline-flex border border-cyan-400 bg-white'>
                                 <img src={MenuImg} alt="" />
@@ -60,7 +58,7 @@ const MindMenuQue = ({setStepQue, stepQue}:Props) => {
                             <span className='text-2xl py-4 px-2 font-mono'>
                                 3. Participar
                             </span>
-                            <button onClick={() => changeStep(3)}
+                            <button onClick={() => setStepQue(3)}
                                 className='w-13 h-13 p-4 absolute -right-4 rounded-full
                                  inline-flex border border-red-400 bg-white'>
                                 <img src={GroupImg} alt="" />
@@ -71,13 +69,13 @@ const MindMenuQue = ({setStepQue, stepQue}:Props) => {
                 </div>
             )}
             {stepQue === 1 && (
-                <Observar onChangeStep={changeStep} />
+                <Observar onChangeStep={setStepQue} localStep={localStep} changeLocalStep={changeLocalStep} />
             )}
             {stepQue === 2 && (
-                <Describir onChangeStep={changeStep} />
+                <Describir onChangeStep={setStepQue} localStep={localStep} changeLocalStep={changeLocalStep} />
             )}
             {stepQue === 3 && (
-                <Participar onChangeStep={changeStep} />
+                <Participar onChangeStep={setStepQue} localStep={localStep} changeLocalStep={changeLocalStep} />
             )}
         </>
     )

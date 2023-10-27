@@ -1,19 +1,33 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ParticipateImg from '../../assets/participar.png'
 import Meditar7 from '../../assets/salud_mental7.png'
 import Meditar8 from '../../assets/salud_mental8.png'
 import Audifono from '../../assets/audifono.png'
 import Repro from '../../assets/reproducir.png'
 import Piña from '../../assets/piña.png'
+import Loader from '../Loaders/Loader'
 interface Props {
+  localStep: number,
+  changeLocalStep: () => void,
   onChangeStep: (step: number) => void;
 }
 
-const Participar = ({ onChangeStep }: Props) => {
-  const [localStep, setLocalStep] = useState(0);
-  const changeLocalStep = (idx: number) => {
-    setLocalStep(idx);
-  };
+const Participar = ({ localStep, changeLocalStep, onChangeStep }: Props) => {
+  const [showLoader, setShowLoader] = useState(true);
+  useEffect(() => {
+
+    if (showLoader) {
+      const timer = setTimeout(() => {
+        setShowLoader(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const show = () => {
+    changeLocalStep()
+    setShowLoader(true)
+  }
   return (
     <div className='px-10'>
 
@@ -22,7 +36,7 @@ const Participar = ({ onChangeStep }: Props) => {
         <p className='font-mono text-xl font-medium'>Participar</p>
       </div>
       {localStep === 0 && (
-        <div className='mt-20 relative' onClick={() => changeLocalStep(1)}>
+        <div className='mt-20 relative' onClick={() => changeLocalStep()}>
           <div className='text-center mb-6 text-lg px-4'>
             <p className='whitespace-pre-wrap'>
               Cuando fluimos y somos un@ solo con la experiencia
@@ -39,7 +53,7 @@ const Participar = ({ onChangeStep }: Props) => {
               Colócate los auriculares.
             </p>
           </div>
-          <div className='mb-10 mt-5 relative flex justify-center' onClick={() => changeLocalStep(2)}>
+          <div className='mb-10 mt-5 relative flex justify-center' onClick={() => changeLocalStep()}>
             <div className='
             rounded-full white w-72 h-72 
             bg-gray-200 flex justify-end items-center'>
@@ -56,7 +70,7 @@ const Participar = ({ onChangeStep }: Props) => {
               Selecciona tu canción favorita.
             </p>
           </div>
-          <div className='mb-10 mt-5 relative flex flex-col justify-center' onClick={() => changeLocalStep(3)}>
+          <div className='mb-10 mt-5 relative flex flex-col justify-center' onClick={() => changeLocalStep()}>
             <div className='
          rounded-full white w-72 h-72 
          bg-gray-200 flex justify-end items-center'>
@@ -70,7 +84,7 @@ const Participar = ({ onChangeStep }: Props) => {
       )}
       {localStep === 3 && (
         <div className='text-center px-4 py-4'>
-          <div className='mb-10 relative flex justify-center' onClick={() => changeLocalStep(4)}>
+          <div className='mb-10 relative flex justify-center' onClick={() => show()}>
             <div className=' absolute -z-10 top-0
       rounded-full white w-[450px] h-[450px]
       bg-gray-300 flex justify-end items-center'>
@@ -86,14 +100,21 @@ const Participar = ({ onChangeStep }: Props) => {
         </div>
       )}
       {localStep === 4 && (
-        <div className='mt-20 relative' onClick={() => onChangeStep(0)}>
-          <div className='text-center mb-6 text-purple-500 text-2xl font-bold'>
-            <p className='whitespace-pre-wrap'>
-              !Muy bien!
-            </p>
-          </div>
-          <img src={Meditar8} alt="" className='mx-auto top-0' />
-        </div>
+        <>
+          {showLoader ? (
+            <Loader idx={2} />
+          ) : (
+            <div className='mt-20 relative' onClick={() => onChangeStep(0)}>
+              <div className='text-center mb-6 text-purple-500 text-2xl font-bold'>
+                <p className='whitespace-pre-wrap'>
+                  !Muy bien!
+                </p>
+              </div>
+              <img src={Meditar8} alt="" className='mx-auto top-0' />
+            </div>
+          )}
+        </>
+
       )}
     </div>
   )

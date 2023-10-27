@@ -9,15 +9,38 @@ const MindFulnessPage = () => {
     const [step, setStep] = useState(0);
     const [stepMenu, setStepMenu] = useState(0);
     const [menu, setMenu] = useState(0);
+    const [localStep, setLocalStep] = useState(0);
+    const changeLocalStep = () => {
+        setLocalStep(localStep + 1);
+    };
+
     const changeStep = (idx: number) => {
         setStep(idx);
         setMenu(0)
         setStepMenu(0)
     };
 
-    const changeMenu= (idx: number)=>{
+    const changAll = (idx: number) =>{
+        setStepMenu(idx)
+        setLocalStep(0)
+    }
+
+    const changeMenu = (idx: number) => {
         setMenu(idx)
         setStepMenu(0)
+    }
+
+    const returnAction = () => {
+        if (stepMenu === 0) {
+            changeStep(0)
+        } else {
+            if (localStep === 0) {
+                changeMenu(0)
+            }else{
+                setLocalStep(localStep - 1)
+            }
+        }
+
     }
     return (
         <>
@@ -45,19 +68,18 @@ const MindFulnessPage = () => {
                     <FooterGaba content="Aventurémonos juntos y haz click a tu pantalla" />
                 </div>
             )}
-
             {step === 1 && (
                 <div className='font-mono'>
                     <div className="px-2 pl-6 mt-4 py-1 flex h-1/5 items-center">
                         <div className="">
-                            <button onClick={() => changeStep(0)}><img src={ArrowLeft} alt="" className='w-4/6' /></button>
+                            <button onClick={returnAction}><img src={ArrowLeft} alt="" className='w-4/6' /></button>
                         </div>
-                        <p className={`text-md ${menu === 1 && 'text-white'}`}>Mindfulnessa</p>
+                        <p className={`text-md ${(menu === 1 && stepMenu > 0) && 'text-white'}`}>Mindfulness</p>
                     </div>
                     {menu === 0 ?
-                        <MindMenuQue stepQue={stepMenu} setStepQue={setStepMenu}/>
+                        <MindMenuQue localStep={localStep} changeLocalStep={changeLocalStep} stepQue={stepMenu} setStepQue={changAll} />
                         : <MindMenuComo stepComo={stepMenu} setStepComo={setStepMenu} />}
-                    
+
                     <div className={`${stepMenu > 0 && 'hidden'} flex justify-center gap-2`}>
                         <button className={`h-2 w-5 rounded-3xl ${menu === 0 ? 'bg-purple-600' : 'bg-purple-200'}`} onClick={() => changeMenu(0)}></button>
                         <button className={`h-2 w-5 rounded-3xl ${menu === 1 ? 'bg-purple-600' : 'bg-purple-200'}`} onClick={() => changeMenu(1)}></button>
