@@ -9,3 +9,5 @@ export const ROUTES = {
     control: "/control",
     registro: "/registro"
 }
+
+export const api_url_base = "http://172.174.193.122/api/"

@@ -1,15 +1,19 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import KaniText from "../assets/text_kani_white.png";
 import Meditar12 from '../assets/salud_mental12.png'
 import ArrowLeft from '../assets/arrow-left.png'
 import PareLogo from '../assets/parelogo.png'
 import FooterGaba from "../components/FooterGaba";
+import { ROUTES } from '../constans';
 const Controlpage = () => {
+    const navigate = useNavigate()
     const [step, setStep] = useState(0);
     const [stepMenu, setStepMenu] = useState(0);
     const changeStep = (idx: number) => {
         setStep(idx)
         setStepMenu(0)
+        console.log(stepMenu)
     };
 
     return (
@@ -24,7 +28,7 @@ const Controlpage = () => {
                     </div>
                     <div className="px-2 pl-6 mt-4 py-1 flex justify-center h-1/5">
                         <div className="absolute left-10">
-                            <button><img src={ArrowLeft} alt="" /></button>
+                            <button><img src={ArrowLeft} alt="" onClick={()=> navigate(ROUTES.tools)} /></button>
                         </div>
                         <p className="text-2xl my-2"></p>
                     </div>

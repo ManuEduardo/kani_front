@@ -5,10 +5,30 @@ import DiaryComponent from "../components/DiaryComponent";
 import CirclePlus from "../assets/circle_plus_y.png";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../constans";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { api_url_base } from "../constans";
+import { useUserContext } from "../context/UserProvider";
+import { Note } from "../models";
 function DiaryPage() {
+  const user = useUserContext();
   const navigate = useNavigate();
-  const [notes, setNotes] = useState([])
+  const [notes, setNotes] = useState([]);
+
+  async function getNotes() {
+    try {
+      const response = await axios.get(`${api_url_base}diario/${user.id}`);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    getNotes().then((notesresponse) => {
+      setNotes(notesresponse);
+    });
+  }, [notes]);
   return (
     <div className="h-screen">
       <div className="h-[7%] bg-purple-500 shadow-2xl">
@@ -28,16 +48,13 @@ function DiaryPage() {
           </div>
         </div>
         <div className="py-1 px-3 bg-purple-300 ">
-          <DiaryComponent fecha="20 nov" content="Wenas" />
-          <DiaryComponent fecha="20 nov" content="Wenas" />
-          <DiaryComponent fecha="20 nov" content="Wenas" />
-          <DiaryComponent fecha="20 nov" content="Wenas" />
-          <DiaryComponent fecha="20 nov" content="Wenas" />
-          <DiaryComponent fecha="20 nov" content="Wenas" />
-          <DiaryComponent fecha="20 nov" content="Wenas" />
-          <DiaryComponent fecha="20 nov" content="Wenas" />
-          <DiaryComponent fecha="20 nov" content="Wenas" />
-          <button className="block mx-auto py-4" onClick={()=>navigate(`${ROUTES.diary}/${notes.length + 1}`)}>
+          {notes.map((not:Note) => (
+            <DiaryComponent key={not.id} fecha="27 oct" content={not.title} />
+          ))}
+          <button
+            className="block mx-auto py-4"
+            onClick={() => navigate(`${ROUTES.diary}/${notes.length + 1}`)}
+          >
             <img src={CirclePlus} alt="" className="w-16" />
           </button>
         </div>

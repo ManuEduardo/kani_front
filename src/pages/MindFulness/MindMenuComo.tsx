@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import Stop from '../../assets/stop.png'
 import Check from '../../assets/check.png'
 import Dedo from '../../assets/dedo.png'

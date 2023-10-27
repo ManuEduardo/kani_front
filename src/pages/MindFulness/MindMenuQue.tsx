@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import EyeImg from '../../assets/eye_purple.png'
 import GroupImg from '../../assets/group_hands.png'
 import MenuImg from '../../assets/menu.png'

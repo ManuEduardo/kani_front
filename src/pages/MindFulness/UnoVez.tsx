@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Meditar10 from '../../assets/salud_mental10.png'
 interface Props {
   onChangeStep: (step: number) => void;
@@ -9,6 +9,7 @@ const UnoVez = ({ onChangeStep }: Props) => {
   const changeLocalStep = (idx: number) => {
     setLocalStep(idx);
   };
+  console.log(localStep, onChangeStep, changeLocalStep);
   return (
     <div className='px-10'>
       <div className='h-[270px]'>

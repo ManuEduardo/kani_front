@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Meditar9 from '../../assets/salud_mental9.png'
 interface Props {
   onChangeStep: (step: number) => void;
 }
 
-const NoJuzgar = ({ onChangeStep }: Props) => {
+const Efectivo = ({ onChangeStep }: Props) => {
   const [localStep, setLocalStep] = useState(0);
+  console.log(localStep)
   const changeLocalStep = (idx: number) => {
     setLocalStep(idx);
   };
+  console.log(changeLocalStep)
   return (
     <div className='px-10'>
       <div className='h-[270px]'>
@@ -36,4 +38,4 @@ const NoJuzgar = ({ onChangeStep }: Props) => {
   )
 }
 
-export default NoJuzgar
+export default Efectivo

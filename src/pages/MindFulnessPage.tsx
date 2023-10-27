@@ -5,7 +5,10 @@ import FooterGaba from "../components/FooterGaba";
 import MindImg1 from '../assets/mind_fulness1.png'
 import MindMenuQue from './MindFulness/MindMenuQue';
 import MindMenuComo from './MindFulness/MindMenuComo';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../constans';
 const MindFulnessPage = () => {
+    const navigate = useNavigate()
     const [step, setStep] = useState(0);
     const [stepMenu, setStepMenu] = useState(0);
     const [menu, setMenu] = useState(0);
@@ -20,7 +23,7 @@ const MindFulnessPage = () => {
         setStepMenu(0)
     };
 
-    const changAll = (idx: number) =>{
+    const changAll = (idx: number) => {
         setStepMenu(idx)
         setLocalStep(0)
     }
@@ -36,7 +39,7 @@ const MindFulnessPage = () => {
         } else {
             if (localStep === 0) {
                 changeMenu(0)
-            }else{
+            } else {
                 setLocalStep(localStep - 1)
             }
         }
@@ -54,7 +57,7 @@ const MindFulnessPage = () => {
                     </div>
                     <div className="px-2 pl-6 mt-4 py-1 flex justify-center h-1/5">
                         <div className="absolute left-10">
-                            <button><img src={ArrowLeft} alt="" /></button>
+                            <button><img src={ArrowLeft} alt="" onClick={() => navigate(ROUTES.tools)} /></button>
                         </div>
                         <p className="text-2xl my-2">Mindfulness</p>
                     </div>
