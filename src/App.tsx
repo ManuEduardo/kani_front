@@ -12,6 +12,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import HomePage from "./pages/HomePage";
 import NoteDiaryPage from "./pages/NoteDiaryPage";
+import Controlpage from "./pages/ControlPage";
 
 function App() {
   AOS.init();
@@ -29,6 +30,7 @@ function App() {
       <Route path={`${ROUTES.diary}/:idNote`} element={<NoteDiaryPage />} />
       <Route path={ROUTES.breathing} element={<BreathingPage />} />
       <Route path={ROUTES.mindfulness} element={<MindFulnessPage />} />
+      <Route path={ROUTES.control} element={<Controlpage />} />
       <Route path="*" element={<div>error</div>} />
     </Routes>
   );
