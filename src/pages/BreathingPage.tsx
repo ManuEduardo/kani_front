@@ -1,7 +1,7 @@
 import KaniText from "../assets/text_kani_white.png";
 import Watch from '../assets/watch.gif'
 import ArrowLeft from '../assets/arrow-left.png'
-import Gaba from '../assets/gaba.png'
+import FooterGaba from "../components/FooterGaba";
 const BreathingPage = () => {
   return (
     <div>
@@ -25,12 +25,7 @@ const BreathingPage = () => {
       <div className="mt-6">
         <img src={Watch} alt="" />
       </div>
-      <div className="absolute bottom-1 w-full">
-        <div className="text-center relative">
-          <p>contémos juntos</p>
-          <img src={Gaba} alt="" className="mx-auto h-[50px]" />
-        </div>
-      </div>
+      <FooterGaba content="contémos juntos" />
 
     </div>
   );
