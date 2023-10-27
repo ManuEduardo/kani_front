@@ -3,16 +3,16 @@ import gabaImg from "../assets/gaba.png";
 import diaryIcon from "../assets/diary_icon.png";
 import chatIcon from "../assets/chatbot_icon.png";
 import breathIcon from "../assets/breath_icon.png";
-import minfulnessIcon from "../assets/mindfulness_icon.png"
-import emotionsIcon from "../assets/emotions_icon.png"
-import emergencyIcon from "../assets/emergency_icon.png"
+import minfulnessIcon from "../assets/mindfulness_icon.png";
+import emotionsIcon from "../assets/emotions_icon.png";
+import emergencyIcon from "../assets/emergency_icon.png";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../constans";
 import { useUserContext } from "../context/UserProvider";
 
 const ListKaniTools = () => {
-  const navigate = useNavigate()
-  const user = useUserContext()
+  const navigate = useNavigate();
+  const user = useUserContext();
 
   return (
     <div className=" p-8">
@@ -32,43 +32,43 @@ const ListKaniTools = () => {
           tailColor="bg-cyan-400"
           titleTool="escribe en tu diario"
           subTitleTool="¿Quisieras preguntarme algo?"
-          onClick={()=>navigate(ROUTES.diary)}
+          onClick={() => navigate(ROUTES.diary)}
         />
         <FrameTool
           iconSrc={chatIcon}
           tailColor="bg-cyan-400"
           titleTool="platica con gaba"
           subTitleTool="¡Gaba es una IA en la que puedes confiar!"
-          onClick={()=>null}
+          onClick={() => null}
         />
         <FrameTool
           iconSrc={breathIcon}
           tailColor="bg-amber-400"
           titleTool="respiración"
           subTitleTool="Toma un descanso y solo respira"
-          onClick={()=>null}
+          onClick={() => null}
         />
         <FrameTool
           iconSrc={minfulnessIcon}
           tailColor="bg-amber-400"
           titleTool="mindfulness"
           subTitleTool="Vive en el presente"
-          onClick={()=>null}
+          onClick={() => null}
         />
         <FrameTool
           iconSrc={emotionsIcon}
           tailColor="bg-fuchsia-400"
           titleTool="platica con gaba"
           subTitleTool="¿Como te va?"
-          onClick={()=>null}
+          onClick={() => null}
         />
         <FrameTool
-        iconSrc={emergencyIcon}
-        tailColor="bg-slate-50"
-        titleTool="Emergencia"
-        subTitleTool="¿Necesitas ayuda?"
-        onClick={()=>null}
-      />
+          iconSrc={emergencyIcon}
+          tailColor="bg-slate-50"
+          titleTool="Emergencia"
+          subTitleTool={"¿Necesitas ayuda? Llama al 113 - (opción 5)"}
+          onClick={() => window.open("tel:${113}")}
+        />
       </div>
     </div>
   );

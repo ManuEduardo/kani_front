@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import KaniText from "../assets/text_kani_white.png";
 import happyImg from "../assets/happy.png";
 import ArrowLeft from "../assets/arrow-left.png";

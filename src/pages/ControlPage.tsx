@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import KaniText from "../assets/text_kani_white.png";
 import Meditar12 from '../assets/salud_mental12.png'
 import ArrowLeft from '../assets/arrow-left.png'
@@ -10,6 +10,7 @@ const Controlpage = () => {
     const changeStep = (idx: number) => {
         setStep(idx)
         setStepMenu(0)
+        console.log(stepMenu)
     };
 
     return (
