@@ -4,5 +4,6 @@ export const ROUTES = {
     tools: "/herramientas",
     diary: "/diario",
     breathing: "/respiracion",
+    home: "/home",
     mindfulness: "/mindfulness"
 }

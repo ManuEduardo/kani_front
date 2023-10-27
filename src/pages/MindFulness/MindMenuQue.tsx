@@ -7,17 +7,18 @@ import Participar from './Participar'
 import Describir from './Describir'
 
 interface Props {
-    step: number
+    stepQue: number
+    setStepQue: (stepComo: number)=>void
 }
 
-const MindMenu = () => {
-    const [step, setStep] = useState(0);
+const MindMenuQue = ({setStepQue, stepQue}:Props) => {
     const changeStep = (idx: number) => {
-        setStep(idx);
+        setStepQue(idx);
     };
     return (
         <>
-            {step === 0 && (
+
+            {stepQue === 0 && (
                 <div>
                     <div className='w-4/5 mx-auto'>
                         <p className='
@@ -69,17 +70,17 @@ const MindMenu = () => {
                     </div>
                 </div>
             )}
-            {step === 1 && (
-                <Observar />
+            {stepQue === 1 && (
+                <Observar onChangeStep={changeStep} />
             )}
-            {step === 2 && (
-                <Describir />
+            {stepQue === 2 && (
+                <Describir onChangeStep={changeStep} />
             )}
-            {step === 3 && (
-                <Participar />
+            {stepQue === 3 && (
+                <Participar onChangeStep={changeStep} />
             )}
         </>
     )
 }
 
-export default MindMenu
+export default MindMenuQue

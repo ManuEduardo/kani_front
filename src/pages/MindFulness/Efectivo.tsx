@@ -1,0 +1,39 @@
+import React, { useState } from 'react'
+import Meditar11 from '../../assets/salud_mental11.png'
+interface Props {
+  onChangeStep: (step: number) => void;
+}
+
+const Efectivo = ({ onChangeStep }: Props) => {
+  const [localStep, setLocalStep] = useState(0);
+  const changeLocalStep = (idx: number) => {
+    setLocalStep(idx);
+  };
+  return (
+    <div className='px-10'>
+      <div className='h-[270px]'>
+        <div className='absolute w-full bg-purple-500 -z-10 top-0 left-0 h-[400px]'>
+        </div>
+        <div className='p-4 relative flex justify-center'>
+          <img src={Meditar11} alt="" className='mx-auto w-4/5' />
+          <div className=' absolute w-4/5 bottom-0
+          flex items-center justify-center
+                            bg-red-400 mx-auto border
+                            rounded-lg shadow shadow-amber-400/60
+                            '>
+            <p className='text-xl py-4 font-semibold text-white text-center'>
+              Ser Efectivo
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className='h-[300px] flex items-center justify-center px-10'>
+        <p className='whitespace-pre-wrap text-center'>
+          Cuando abandonas los juicios, te centras en tus ojetivos y actúas de acuerdo a tus valores.
+        </p>
+      </div>
+    </div>
+  )
+}
+
+export default Efectivo
