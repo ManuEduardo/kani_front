@@ -46,21 +46,21 @@ const ListKaniTools = () => {
           tailColor="bg-amber-400"
           titleTool="respiración"
           subTitleTool="Toma un descanso y solo respira"
-          onClick={() => null}
+          onClick={() => navigate(ROUTES.breathing)}
         />
         <FrameTool
           iconSrc={minfulnessIcon}
           tailColor="bg-amber-400"
           titleTool="mindfulness"
           subTitleTool="Vive en el presente"
-          onClick={() => null}
+          onClick={() => navigate(ROUTES.mindfulness)}
         />
         <FrameTool
           iconSrc={emotionsIcon}
           tailColor="bg-fuchsia-400"
           titleTool="platica con gaba"
           subTitleTool="¿Como te va?"
-          onClick={() => null}
+          onClick={() => navigate(ROUTES.control)}
         />
         <FrameTool
           iconSrc={emergencyIcon}

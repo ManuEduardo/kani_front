@@ -2,7 +2,11 @@ import KaniText from "../assets/text_kani_white.png";
 import Watch from '../assets/watch.gif'
 import ArrowLeft from '../assets/arrow-left.png'
 import FooterGaba from "../components/FooterGaba";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../constans";
 const BreathingPage = () => {
+
+  const navigate = useNavigate()
   return (
     <div>
       <div className="h-[7%] bg-purple-500 shadow-2xl">
@@ -10,7 +14,7 @@ const BreathingPage = () => {
       </div>
       <div className="px-2 pl-6 mt-4 py-1 flex justify-center h-1/5">
         <div className="absolute left-10">
-          <button><img src={ArrowLeft} alt="" /></button>
+          <button><img src={ArrowLeft} alt="" onClick={()=> navigate(ROUTES.tools)} /></button>
         </div>
         <p className="text-2xl my-2">Respiración</p>
       </div>

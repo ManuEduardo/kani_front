@@ -13,6 +13,7 @@ import "aos/dist/aos.css";
 import HomePage from "./pages/HomePage";
 import NoteDiaryPage from "./pages/NoteDiaryPage";
 import Controlpage from "./pages/ControlPage";
+import RegistroPage from "./pages/RegistroPage";
 
 function App() {
   AOS.init();
@@ -26,6 +27,7 @@ function App() {
         <Route path={ROUTES.tools} element={<ListKaniTools />} />
       </Route>
       <Route path={ROUTES.home} element={<HomePage />} />
+      <Route path={ROUTES.registro} element={<RegistroPage />} />
       <Route path={ROUTES.diary} element={<DiaryPage />} />
       <Route path={`${ROUTES.diary}/:idNote`} element={<NoteDiaryPage />} />
       <Route path={ROUTES.breathing} element={<BreathingPage />} />

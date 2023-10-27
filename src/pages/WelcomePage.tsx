@@ -23,12 +23,9 @@ const WelcomePage = () => {
   // Use useEffect para realizar la redirección cuando step sea 2
   useEffect(() => {
     if (step === 2) {
-      // Configura un temporizador para la redirección después de 3000 milisegundos (3 segundos)
       const timer = setTimeout(() => {
         redirectToAnotherRoute();
-      }, 3000); // 3000 ms = 3 segundos
-
-      // Limpia el temporizador cuando el componente se desmonta o cuando step cambia
+      }, 3000);
       return () => {
         clearTimeout(timer);
       };

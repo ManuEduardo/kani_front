@@ -5,15 +5,28 @@ import Meditar5 from '../../assets/salud_mental5.png'
 import Meditar6 from '../../assets/salud_mental6.png'
 import Sonar from '../../assets/sonar.png'
 import WatchSand from '../../assets/watch_sand.png'
+import Loader from '../Loaders/Loader'
 interface Props {
+  localStep: number,
+  changeLocalStep: () => void,
   onChangeStep: (step: number) => void;
 }
+const Describir = ({ localStep, changeLocalStep, onChangeStep }: Props) => {
+  const [showLoader, setShowLoader] = useState(true);
+  useEffect(() => {
 
-const Describir = ({ onChangeStep }: Props) => {
-  const [localStep, setLocalStep] = useState(0);
-  const changeLocalStep = (idx: number) => {
-    setLocalStep(idx);
-  };
+    if (showLoader) {
+      const timer = setTimeout(() => {
+        setShowLoader(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const show = () => {
+    changeLocalStep()
+    setShowLoader(true)
+  }
   return (
     <div className='px-10'>
 
@@ -22,7 +35,7 @@ const Describir = ({ onChangeStep }: Props) => {
         <p className='font-mono text-xl font-medium'>Describir</p>
       </div>
       {localStep === 0 && (
-        <div className='mt-20 relative' onClick={() => changeLocalStep(1)}>
+        <div className='mt-20 relative' onClick={() => changeLocalStep()}>
           <div className='text-center mb-6 text-cyan-600 font-bold'>
             <p className='whitespace-pre-wrap'>
               En tu vida diaria, describir te ayuda a darle un nombre a lo que te sucede
@@ -32,7 +45,7 @@ const Describir = ({ onChangeStep }: Props) => {
         </div>
       )}
       {localStep === 1 && (
-        <div className='mt-20 relative' onClick={() => changeLocalStep(2)}>
+        <div className='mt-20 relative' onClick={() => changeLocalStep()}>
           <div className='text-center mb-6 text-cyan-600 font-bold'>
             <p className='whitespace-pre-wrap'>
               Le colocamos una etiqueta a lo que observamos, le ponemos una palabra a la experiencia.
@@ -48,7 +61,7 @@ const Describir = ({ onChangeStep }: Props) => {
               Cuando te des cuenta de que sentiste algo, di una palabra que describa ese sonido.
             </p>
           </div>
-          <div className='my-10 relative flex flex-col justify-center' onClick={() => changeLocalStep(3)}>
+          <div className='my-10 relative flex flex-col justify-center' onClick={() => changeLocalStep()}>
             <div className='
                       rounded-full white w-52 h-52 mx-auto
                       bg-white flex justify-end items-center'>
@@ -67,7 +80,7 @@ const Describir = ({ onChangeStep }: Props) => {
               Cuando te des cuenta de que sentiste algo, di una palabra que describa ese sonido.
             </p>
           </div>
-          <div className='my-10 relative flex flex-col justify-center' onClick={() => changeLocalStep(4)}>
+          <div className='my-10 relative flex flex-col justify-center' onClick={() => show()}>
             <div className='
                         rounded-full white w-52 h-52 mx-auto
                         bg-white flex justify-end items-center'>
@@ -80,14 +93,21 @@ const Describir = ({ onChangeStep }: Props) => {
         </div>
       )}
       {localStep === 4 && (
-        <div className='mt-20 relative' onClick={() => changeLocalStep(5)}>
-          <div className='text-center mb-6 text-2xl px-4'>
-            <p className='whitespace-pre-wrap'>
-              Practiquemos 30 segundos
-            </p>
-          </div>
-          <img src={WatchSand} alt="" className='mx-auto top-0' />
-        </div>
+        <>
+          {showLoader ? (
+            <Loader idx={2} />
+          ) : (
+            <div className='mt-20 relative' onClick={() => changeLocalStep()}>
+              <div className='text-center mb-6 text-2xl px-4'>
+                <p className='whitespace-pre-wrap'>
+                  Practiquemos 30 segundos
+                </p>
+              </div>
+              <img src={WatchSand} alt="" className='mx-auto top-0' />
+            </div>
+          )}
+        </>
+
       )}
       {localStep === 5 && (
         <div className='mt-20 relative' onClick={() => onChangeStep(0)}>
