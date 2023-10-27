@@ -8,9 +8,10 @@ import NavWrapper from "./components/NavWrapper";
 import BreathingPage from "./pages/BreathingPage";
 import MindFulnessPage from "./pages/MindFulnessPage";
 import ProfilePage from "./pages/ProfilePage";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import HomePage from "./pages/HomePage";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import NoteDiaryPage from "./pages/NoteDiaryPage";
 
 function App() {
   AOS.init();
@@ -19,12 +20,13 @@ function App() {
       <Route path={ROUTES.defaul} element={<WelcomePage />} />
       <Route element={<NavWrapper />}>
         <Route element={<ProtectedRoute />}>
-          <Route path={ROUTES.profile} element={<ProfilePage/>} />
+          <Route path={ROUTES.profile} element={<ProfilePage />} />
         </Route>
         <Route path={ROUTES.tools} element={<ListKaniTools />} />
       </Route>
-      <Route path={ROUTES.home} element={<HomePage/>} />
+      <Route path={ROUTES.home} element={<HomePage />} />
       <Route path={ROUTES.diary} element={<DiaryPage />} />
+      <Route path={`${ROUTES.diary}/:idNote`} element={<NoteDiaryPage />} />
       <Route path={ROUTES.breathing} element={<BreathingPage />} />
       <Route path={ROUTES.mindfulness} element={<MindFulnessPage />} />
       <Route path="*" element={<div>error</div>} />

@@ -1,4 +1,3 @@
-import React from "react";
 import FrameTool from "../components/FrameTool";
 import gabaImg from "../assets/gaba.png";
 import diaryIcon from "../assets/diary_icon.png";
@@ -9,14 +8,16 @@ import emotionsIcon from "../assets/emotions_icon.png"
 import emergencyIcon from "../assets/emergency_icon.png"
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../constans";
+import { useUserContext } from "../context/UserProvider";
 
 const ListKaniTools = () => {
   const navigate = useNavigate()
+  const user = useUserContext()
 
   return (
     <div className=" p-8">
       <div className=" flex justify-between">
-        <h2 className=" mt-auto mb-4">¡Hola {"User"}!</h2>
+        <h2 className=" mt-auto mb-4">¡Hola {user.name}!</h2>
         <img src={gabaImg} alt="gaba" className=" w-16" />
       </div>
       <p>Hoy es un buen dia para trabajar juntos</p>

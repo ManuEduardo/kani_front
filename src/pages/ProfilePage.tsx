@@ -1,14 +1,15 @@
-import React from "react";
 import gabaImg from "../assets/gaba.png";
 import hobbiesIcon from "../assets/hobbies_icon.png";
+import { useUserContext } from "../context/UserProvider";
 
 const ProfilePage = () => {
+  const user = useUserContext()
   return (
     <div>
       <div className="relative bg-purple-500 h-60">
         <div className=" p-8">
           <h2 className=" mt-auto mb-4 text-xl font-semibold">PERFIL</h2>
-          <h2 className=" mt-auto mb-4 font-semibold">¡Hola {"User"}!</h2>
+          <h2 className=" mt-auto mb-4 font-semibold">¡Hola {user.name}!</h2>
 
           <p className=" text-slate-50">
             Aquí puedes agregar más datos sobre ti, nos encantaría conocerte
@@ -23,7 +24,7 @@ const ProfilePage = () => {
             />
           </div>
           <h2 className=" relative bottom-4 py-2 px-8 mx-auto text-slate-50 bg-amber-400 w-max font-bold text-lg shadow-2xl rounded-xl">
-            {"Lucia"}
+            {user.name}
           </h2>
         </div>
       </div>
@@ -34,7 +35,7 @@ const ProfilePage = () => {
             data-aos="fade-right"
           >
             <h3 className=" text-sm text-center font-mono">Dias juntos</h3>
-            <p className=" text-8xl font-bold text-slate-50 text-center">{2}</p>
+            <p className=" text-8xl font-bold text-slate-50 text-center">{user.days_on_app}</p>
           </div>
         </div>
         <div className=" w-32 h-32 hover:scale-105 transition-transform">
@@ -52,7 +53,7 @@ const ProfilePage = () => {
         </div>
 
         <div className=" w-32 h-32 hover:scale-105 transition-transform">
-          <div data-aos="fade-up-right" className=" bg-fuchsia-400 mx-1 my-8 p-1 rounded-lg shadow-2xl">
+          <div className=" bg-fuchsia-400 mx-1 my-8 p-1 rounded-lg shadow-2xl">
             <h3 className=" text-center text-slate-50">Frase del Dia</h3>
             <p className=" text-center text-sm">Solo haz click</p>
           </div>
