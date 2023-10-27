@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ThinkImg from '../../assets/describi.png'
 import Meditar4 from '../../assets/salud_mental4.png'
 import Meditar5 from '../../assets/salud_mental5.png'

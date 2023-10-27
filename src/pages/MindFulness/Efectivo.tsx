@@ -6,7 +6,7 @@ interface Props {
 
 const Efectivo = ({ onChangeStep }: Props) => {
   const [localStep, setLocalStep] = useState(0);
-  console.log(localStep)
+  console.log(localStep, onChangeStep);
   const changeLocalStep = (idx: number) => {
     setLocalStep(idx);
   };

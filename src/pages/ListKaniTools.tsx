@@ -62,13 +62,16 @@ const ListKaniTools = () => {
           subTitleTool="¿Como te va?"
           onClick={() => navigate(ROUTES.control)}
         />
-        <FrameTool
-          iconSrc={emergencyIcon}
-          tailColor="bg-slate-50"
-          titleTool="Emergencia"
-          subTitleTool={"¿Necesitas ayuda? Llama al 113 - (opción 5)"}
-          onClick={() => window.open("tel:${113}")}
-        />
+        <a href="tel:+113">
+          <FrameTool
+            iconSrc={emergencyIcon}
+            tailColor="bg-slate-50"
+            titleTool="Emergencia"
+            subTitleTool={"¿Necesitas ayuda? Llama al 113 - (opción 5)"}
+            // onClick={() => window.open("tel:${113}")}
+            onClick={() => null}
+          />
+        </a>
       </div>
     </div>
   );

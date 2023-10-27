@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import ParticipateImg from '../../assets/participar.png'
 import Meditar7 from '../../assets/salud_mental7.png'
 import Meditar8 from '../../assets/salud_mental8.png'

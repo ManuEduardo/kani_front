@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Pinchos from '../assets/pinchos.png'
 import Arrow1 from '../assets/Arrow 1.png'
 import Arrow2 from '../assets/Arrow 2.png'
-import Gps from '../assets/Gps.png'
-import Img1 from '../assets/img1.png'
-import Img2 from '../assets/img2.png'
+// import Gps from '../assets/Gps.png'
+// import Img1 from '../assets/img1.png'
+// import Img2 from '../assets/img2.png'
 import KaniText from "../assets/text_kani_white.png";
 import Loader from './Loaders/Loader'
 import { useNavigate } from "react-router-dom";
@@ -17,6 +17,7 @@ const RegistroPage = () => {
     const redirectToAnotherRoute = () => {
         navigate(ROUTES.home);
     };
+    console.log(redirectToAnotherRoute);
     useEffect(() => {
         if (showLoader) {
             const timer = setTimeout(() => {

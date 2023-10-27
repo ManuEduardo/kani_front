@@ -1,4 +1,3 @@
-import React from 'react'
 import loader1 from '../../assets/loader/Loader1.png'
 import loader2 from '../../assets/loader/Loader2.png'
 import loader3 from '../../assets/loader/Loader3.png'

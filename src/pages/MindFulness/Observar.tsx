@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import EyeImg from '../../assets/eye_purple.png'
 import Watch from '../../assets/watch.gif'
 import Eye1 from '../../assets/eye1.png'
