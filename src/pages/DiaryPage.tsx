@@ -6,8 +6,8 @@ import CirclePlus from "../assets/circle_plus_y.png";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../constans";
 import { useEffect, useState } from "react";
-import axios from "axios";
-import { api_url_base } from "../constans";
+// import axios from "axios";
+// import { api_url_base } from "../constans";
 import { useUserContext } from "../context/UserProvider";
 import { Note } from "../models";
 function DiaryPage() {
@@ -15,20 +15,16 @@ function DiaryPage() {
   const navigate = useNavigate();
   const [notes, setNotes] = useState([]);
 
-  async function getNotes() {
-    try {
-      const response = await axios.get(`${api_url_base}diario/${user.id}`);
-      return response.data;
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
   useEffect(() => {
-    getNotes().then((notesresponse) => {
-      setNotes(notesresponse);
-    });
-  }, [notes]);
+    const savedNotes = localStorage.getItem('notes');
+    
+    if (savedNotes) {
+      setNotes(JSON.parse(savedNotes));
+    } else {
+      setNotes([]);
+    }
+  }, []);
+
   return (
     <div className="h-screen">
       <div className="h-[7%] bg-purple-500 shadow-2xl">
@@ -42,15 +38,20 @@ function DiaryPage() {
               <img src={ArrowLeft} onClick={() => navigate(-1)} />
             </button>
           </div>
-          <div className="">
+          <div className="flex flex-col items-center">
             <p className="text-xl mb-1">Escribe tu diario</p>
-            <img src={DiaryImage} alt="" className="mx-auto" />
+            <img src={DiaryImage} alt="" className="mx-auto h-28ñ" />
           </div>
         </div>
         <div className="py-1 px-3 bg-purple-300 ">
           {notes.length > 0 ? (
             notes.map((not: Note) => (
-              <DiaryComponent key={not.id} fecha="27 oct" content={not.title} />
+              <DiaryComponent
+                key={not.id}
+                fecha={not.date}
+                content={not.title}
+                noteId={not.id} // Pasar el ID de la nota a DiaryComponent
+              />
             ))
           ) : (
             <div className=" bg-purple-200 px-1 py-2 rounded-lg my-4">

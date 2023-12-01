@@ -15,8 +15,10 @@ const Loader = ({ idx }: Props) => {
   const loaders = [loader1, loader2, loader3, loader4, loader5, loader6, loader7, loader8, loader9]
 
   return (
-    <div className='absolute h-screen w-screen top-1 left-0 z-20'>
+    <div className='absolute min-h-[800px] h-full w-screen top-0 left-0 z-20 bg-white'>
+      <div className='h-full md:w-1/2 lg:w-1/3 xl:w-1/4 mx-auto'>
         <img src={loaders[idx]} alt="" className='w-full h-full' />
+      </div>
     </div>
   )
 }

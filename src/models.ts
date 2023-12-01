@@ -9,6 +9,7 @@ export interface Note {
   id: number;
   title: string;
   text: string;
+  date: string;
   diary_id: number;
 }
 

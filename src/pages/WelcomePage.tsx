@@ -35,7 +35,7 @@ const WelcomePage = () => {
   return (
     <>
       {step === 0 && (
-        <div className="bg-purple-500 min-h-screen flex flex-col justify-between relative overflow-hidden">
+        <div className="bg-purple-500 h-screen max-h-screen flex flex-col justify-between relative overflow-hidden">
           <h2 className="text-2xl text-purple-50 ml-12 mt-11 font-bold">
             Bienvenido
           </h2>
