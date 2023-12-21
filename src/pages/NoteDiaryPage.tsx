@@ -5,13 +5,10 @@ import ArrowLeft from "../assets/arrow-left.png";
 import keyboarImg from "../assets/keyboard.png";
 import gabaLogo from "../assets/gaba.png";
 import { useNavigate, useParams } from "react-router-dom";
-import { useUserContext } from "../context/UserProvider";
-import { NewNote } from "../models";
 
 const NoteDiaryPage = () => {
   const navigate = useNavigate();
   const { idNote } = useParams();
-  const user = useUserContext();
   const [title, setTitle] = useState<string>("");
   const [text, setText] = useState<string>("");
   const [notes, setNotes] = useState<any[]>([]);
@@ -24,7 +21,7 @@ const NoteDiaryPage = () => {
   }, []);
 
   useEffect(() => {
-    const selectedNote = notes.find((note) => note.id === parseInt(idNote));
+    const selectedNote = notes.find((note) => note.id === parseInt(idNote ? idNote : ""));
     if (selectedNote) {
       setTitle(selectedNote.title);
       setText(selectedNote.text);
@@ -34,7 +31,7 @@ const NoteDiaryPage = () => {
   const saveNote = () => {
     if (title.trim() === "" || text.trim() === "") return;
 
-    const noteId = parseInt(idNote);
+    const noteId = parseInt(idNote ? idNote : "");
     const existingNoteIndex = notes.findIndex((note) => note.id === noteId);
 
     if (existingNoteIndex !== -1) {
@@ -60,9 +57,9 @@ const NoteDiaryPage = () => {
     navigate(-1);
   };
 
-  const formatDate = (date) => {
-    const options = { day: "numeric", month: "long" };
-    return new Intl.DateTimeFormat("es-ES", options).format(date);
+  const formatDate = (date: number | Date | undefined) => {
+    // const options = { day: "numeric", month: "long" };
+    return new Intl.DateTimeFormat("es-ES").format(date);
   };
   return (
     <div className="min-h-screen">

@@ -19,7 +19,7 @@ import { ROUTES } from '../constans';
 const Controlpage = () => {
     const navigate = useNavigate()
     const [step, setStep] = useState(0);
-    const [stepMenu, setStepMenu] = useState(0);
+    const [, setStepMenu] = useState(0);
     const changeStep = (idx: number) => {
         setStep(idx)
         setStepMenu(0)

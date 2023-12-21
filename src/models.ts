@@ -24,6 +24,7 @@ export const EmptyNote: Note = {
   id: 2,
   title: "Me cai de la cama",
   text: "Casito, pero no.",
+  date: '',
   diary_id: 1,
 };
 

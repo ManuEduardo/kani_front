@@ -8,10 +8,8 @@ import { ROUTES } from "../constans";
 import { useEffect, useState } from "react";
 // import axios from "axios";
 // import { api_url_base } from "../constans";
-import { useUserContext } from "../context/UserProvider";
 import { Note } from "../models";
 function DiaryPage() {
-  const user = useUserContext();
   const navigate = useNavigate();
   const [notes, setNotes] = useState([]);
 
